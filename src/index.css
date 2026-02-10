@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@theme {
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+* {
+  font-family: "poppins", sans-serif;
+}
+
+@layer components {
+  .container-s {
+    @apply mx-auto px-4;
+  }
+
+  @media (min-width: 640px) {
+    .container-s {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container-s {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-s {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-s {
+      max-width: 1400px;
+    }
+  }
+}
+
+.link {
+  background-color: rgba(63, 63, 63, 0.5);
+  @apply block p-3  rounded-4xl border border-white;
+}
+.card {
+  transition: all 0.15s ease-in-out !important;
+}
+.card:hover {
+  outline: solid rgb(137, 137, 137) 1px;
+}
