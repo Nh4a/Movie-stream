@@ -19,7 +19,9 @@ const NavigationBar = () => {
           <div className="hidden md:block w-60 lg:w-80 ">
             <ul className="flex justify-between font-bold text-gray-300">
               <li className={location.pathname === "/" ? "text-red-500" : ""}>
-                <Link to={"/"}>HOME</Link>
+                <Link to={"/"} >
+                  HOME
+                </Link>
               </li>
 
               {/* to={"/movie"} */}
@@ -31,9 +33,11 @@ const NavigationBar = () => {
                 </Link>
               </li>
               <li
-                className={location.pathname === "/contact" ? "text-red-500" : ""}
+                className={
+                  location.pathname === "/contact" ? "text-red-500" : ""
+                }
               >
-                <Link to={"/contact"} className="hover:text-white">
+                <Link to={"/contact"} className="hover:text-white ">
                   Contact
                 </Link>
               </li>
@@ -44,7 +48,7 @@ const NavigationBar = () => {
           <div className="flex gap-2 items-center ">
             <div>
               <input
-                className="hidden md:block rounded-xl bg-white py-2 w-[250px] self-end"
+                className="hidden md:block rounded-xl bg-white py-2 px-2 self-end text-[16px]"
                 placeholder="Search your favorite movie..."
                 type="text"
               />
@@ -55,8 +59,6 @@ const NavigationBar = () => {
               </button>
             </div>
           </div>
-
-         
         </div>
       </nav>
     </>
