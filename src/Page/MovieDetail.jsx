@@ -95,18 +95,7 @@ const MovieDetail = () => {
                 Watch Now
               </button>
 
-              <button
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-                className="text-[12px]  xs:text-[14px] flex gap-1 px-1 py-2 xs:gap-2 items-center xs:px-2 xs:py-3 bg-red-500 rounded-xl text-white xs:font-bold border border-gray-900
-                                md:px-3 md:py-4 transition-transform hover:-translate-y-0.5
-                        "
-              >
-                <Icon
-                  icon="ic:baseline-add"
-                  className="w-3 h-3 xs:w-6 xs:h-6"
-                />
-                Add to List
-              </button>
+
             </div>
           </div>
         </div>
