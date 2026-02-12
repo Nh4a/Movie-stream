@@ -7,12 +7,14 @@ import MainLayout from './Layout/MainLayout'
 import MovieDetail from './Page/MovieDetail'
 import NavigationBar from './Components/NavigationBar'
 import ContactPage from './Page/ContactPage'
+import Loading from './Components/Loading'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+
     {/* <NavigationBar /> */}
      <MainRouter />
      {/* <ContactPage /> */}

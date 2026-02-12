@@ -3,6 +3,7 @@ import HomePage from "../Page/HomePage";
 import MoviePage from "../Page/MoviePage";
 import MainLayout from "../Layout/MainLayout";
 import MovieDetail from "../Page/MovieDetail";
+import ContactPage from "../Page/ContactPage";
 
 const MainRouter = () => {
   return (
@@ -11,7 +12,7 @@ const MainRouter = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/movie" element={<MoviePage />} />
-          <Route path="/offer" element={<MoviePage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Route>
         <Route path="/detail/:id" element={<MovieDetail />} />
       </Routes>

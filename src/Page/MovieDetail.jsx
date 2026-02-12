@@ -45,6 +45,7 @@ const MovieDetail = () => {
 
   return (
     <>
+    
       <div className="border-y-2 border-white my-4  py-2 bg-black sticky top-0">
         <div className="container-s">
           <button

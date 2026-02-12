@@ -6,10 +6,8 @@ import axios from "axios";
 import Card from "../Components/Card";
 
 const MoviePage = () => {
-  const [sortDesc_, setSortDesc_] = useState(false);
 
   const [movies, setMovies] = useState([]);
-  // let m;
   useEffect(() => {
     const options = {
       method: "GET",

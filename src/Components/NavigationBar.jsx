@@ -31,10 +31,10 @@ const NavigationBar = () => {
                 </Link>
               </li>
               <li
-                className={location.pathname === "/offer" ? "text-red-500" : ""}
+                className={location.pathname === "/contact" ? "text-red-500" : ""}
               >
-                <Link to={"/offer"} className="hover:text-white">
-                  OFFERS
+                <Link to={"/contact"} className="hover:text-white">
+                  Contact
                 </Link>
               </li>
             </ul>
