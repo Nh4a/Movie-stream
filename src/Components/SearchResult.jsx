@@ -5,6 +5,7 @@ import CardSearch from "./CardSearch";
 
 const SearchResult = ({ searchTitle }) => {
   const [movie, setMovie] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const options = {
       method: "GET",
@@ -14,6 +15,7 @@ const SearchResult = ({ searchTitle }) => {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZjlkYWFmYjY3NzM4ZjMwOGZhMDAyN2RhMmNkZWFjNiIsIm5iZiI6MTc2NjU1MDg0OS41NjMsInN1YiI6IjY5NGI2ZDQxNTdkNDhkY2VmMWIxZDYyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YMX57dQ5c7UjzSluXJ0BBfbl2GdzbWdNZBhyPHqHrmk",
       },
     };
+    setLoading(true);
     axios
       .get(
         "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc",
@@ -21,6 +23,7 @@ const SearchResult = ({ searchTitle }) => {
       )
       .then((res) => {
         setMovie(res.data.results);
+        setLoading(false);
       });
   }, []);
   let searchResults = [];
@@ -30,8 +33,9 @@ const SearchResult = ({ searchTitle }) => {
   console.log("search result", searchResults);
   console.log("search title", searchTitle);
   return (
-    <div className="w-full h-50 mb-2 p-1 overflow-x-auto  grid grid-rows-auto gap-2 mt-2 ">
+    <div className="relative w-full h-50 mb-2 p-1 overflow-x-auto  grid grid-rows-auto gap-2 mt-2 ">
       {/* card */}
+      {loading && <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black-100 w-100 h-100  text-white text-center my-auto text-2xl font-bold">Loading...</p>}
       {searchResults.length > 0 ? (
         searchResults.map((item) => (
           <CardSearch

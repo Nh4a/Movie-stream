@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 import Card from "../Components/Card";
 
 const MovieDetail = () => {
-  const id = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [sMovies, setSmovies] = useState([]);
-  const [topMovie, setTopMovie] = useState([]);
+  const [movie, setMovie] = useState([]);
   useEffect(() => {
     const options = {
       method: "GET",
@@ -28,10 +28,8 @@ const MovieDetail = () => {
         const data = res.data.results;
         const sMovie = data.slice(3, 9);
         setSmovies(sMovie);
-        const highest = data.reduce((max, movie) =>
-          movie.vote_average > max.vote_average ? movie : max,
-        );
-        setTopMovie(highest);
+        const findm = data.find((item) => item.id === parseInt(id));
+        setMovie(findm);
       } catch (er) {
         console.log(er);
       }
@@ -45,7 +43,6 @@ const MovieDetail = () => {
 
   return (
     <>
-    
       <div className="border-y-2 border-white my-4  py-2 bg-black sticky top-0">
         <div className="container-s">
           <button
@@ -70,13 +67,13 @@ const MovieDetail = () => {
           <div className="w-full md:w-180 md:my-auto lg:w-200 px-3 ">
             <img
               className="w-full rounded-2xl border border-red-500 m-auto"
-              src={"https://image.tmdb.org/t/p/w500" + topMovie.poster_path}
+              src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
               alt=""
             />
           </div>
           <div className="flex flex-col gap-5 md:justify-center">
             <h1 className="text-center text-white text-3xl font-bold md:text-start lg:text-5xl">
-              {topMovie.name}
+              {movie.name}
             </h1>
             <div className="text-[#D9D9D9] flex gap-3 justify-center md:justify-start md:text-[18px]">
               <span>{1.2}</span>
@@ -86,7 +83,7 @@ const MovieDetail = () => {
               className="text-center text-[#D9D9D9] md:text-[16px] 
                         md:hauto   md:text-start"
             >
-              {topMovie.overview}
+              {movie.overview}
             </p>
             <div className="flex justify-around md:justify-start md:gap-4 ">
               <button
@@ -113,7 +110,7 @@ const MovieDetail = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between items-center mt-4">
+        {/* <div className="w-full flex justify-between items-center mt-4">
           <h1 className="text-white text-[24px] font-bold">
             You May Also Like
           </h1>
@@ -126,12 +123,12 @@ const MovieDetail = () => {
               />
             </Link>
           </div>
-        </div>
-        <div className="mt-8 w-full h-auto grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-5 xl:grid-cols-6">
+        </div> */}
+        {/* <div className="mt-8 w-full h-auto grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-5 xl:grid-cols-6">
           {sMovies.map((item, index) => (
             <Card key={item.id} movie={item} />
           ))}
-        </div>
+        </div> */}
         <Footer />
       </div>
     </>
