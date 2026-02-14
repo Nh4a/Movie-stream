@@ -4,11 +4,13 @@ import MoviePage from "../Page/MoviePage";
 import MainLayout from "../Layout/MainLayout";
 import MovieDetail from "../Page/MovieDetail";
 import ContactPage from "../Page/ContactPage";
+import ScrolToTop from "../Utilities/ScrolToTop";
 
 const MainRouter = () => {
   return (
     <>
       <Routes>
+      <ScrolToTop />
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/movie" element={<MoviePage />} />
