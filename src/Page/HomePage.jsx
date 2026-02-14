@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BottomBar from "../Components/BottomBar";
 import HeroSection from "../Components/HeroSection";
 import NavigationBar from "../Components/NavigationBar";
@@ -28,21 +28,23 @@ const HomePage = () => {
       const res = await axios.get(url, options);
       setMovies(res.data.results);
       console.log("hu", res.data.results);
-
     }
     fetchData();
-  }, []);
+  }, []);  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [movies]);
   trandingMovie = movies.slice(0, 6);
   movieHero = movies[Math.floor(Math.random() * 20)];
   console.log("hello home page");
   return (
     <div>
       <HeroSection movieHero={movieHero} />
-      <div className="container-s h-[100px]">
+      <div className="container-s h-25">
         <div className="w-full flex justify-between items-center">
           <h1 className="text-white text-[24px] font-bold">Trending Now</h1>
           <div className="text-[#D9D9D9] text-[18px]">
-            <Link className="flex"to={"/movie"}>
+            <Link className="flex" to={"/movie"}>
               View All
               <Icon
                 icon="iconamoon:arrow-right-2"
@@ -60,7 +62,7 @@ const HomePage = () => {
         <div className="w-full flex justify-between items-center mt-5">
           <h1 className="text-white text-[24px] font-bold">Top Rate</h1>
           <div className="text-[#D9D9D9] text-[18px]">
-            <Link className="flex"to={"/movie"}>
+            <Link className="flex" to={"/movie"}>
               View All
               <Icon
                 icon="iconamoon:arrow-right-2"

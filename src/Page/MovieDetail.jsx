@@ -39,6 +39,7 @@ const MovieDetail = () => {
   }, []);
   function back() {
     window.history > 1 ? navigate("/") : navigate(-1);
+    window.scrollTo(0, 0);
   }
 
   return (
