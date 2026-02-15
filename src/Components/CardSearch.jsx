@@ -1,8 +1,10 @@
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
-const CardSearch = ({name, vote_average, first_air_date, poster_path}) => {
+const CardSearch = ({name, vote_average, first_air_date, poster_path, id}) => {
+  const navigate = useNavigate();
   return (
-    <div className="h-20  w-full p-1 flex gap-2 border-b-2  border-gray-500 hover:bg-gray-500/50 ">
+    <div className="h-20  w-full p-1 flex gap-2 border-b-2  border-gray-500 hover:bg-gray-500/50 " onClick={() => navigate(`/detail/${id}`)}>
       <img
         className="h-[100%] outline-1 outline-white"
         src={"https://image.tmdb.org/t/p/w500" + poster_path}

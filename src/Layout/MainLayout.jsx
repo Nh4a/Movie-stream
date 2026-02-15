@@ -1,9 +1,10 @@
-import { Navigation } from "lucide-react";
+import { CloudSnow, Navigation } from "lucide-react";
 import { Outlet } from "react-router-dom";
 import NavigationBar from "../Components/NavigationBar";
 import BottomBar from "../Components/BottomBar";
 import { act, useState } from "react";
 import SearchFill from "../Components/SearchFill";
+import Footer from "../Components/Footer";
 
 const MainLayout = () => {
   const [active, setActive] = useState(false);
@@ -26,6 +27,7 @@ const MainLayout = () => {
       <div>
         <Outlet />
       </div>
+     <Footer />
       <BottomBar show={showSearch} />
     </>
   );

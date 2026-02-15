@@ -38,7 +38,9 @@ const SearchResult = ({ searchTitle }) => {
       {loading && <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black-100 w-100 h-100  text-white text-center my-auto text-2xl font-bold">Loading...</p>}
       {searchResults.length > 0 ? (
         searchResults.map((item) => (
+          
           <CardSearch
+            id={item.id}
             key={item.id}
             name={item.name}
             vote_average={item.vote_average}

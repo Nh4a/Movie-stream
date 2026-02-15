@@ -77,7 +77,6 @@ const HomePage = () => {
           ))}
         </div>
         <Footer />
-        <div className="h-150"></div>
       </div>
       <BottomBar />
     </div>
