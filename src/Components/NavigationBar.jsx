@@ -16,10 +16,10 @@ const NavigationBar = () => {
   };
   const [open, result] = useState(false);
 
-  const [w_list, setw_List] = useState([])
-  useEffect(()=>{
-    setw_List(get_list())
-  }, [])
+  const [w_list, setw_List] = useState([]);
+  useEffect(() => {
+    setw_List(get_list() || []);
+  }, []);
   return (
     <>
       <nav style={{ zIndex: 100 }} className="w-full bg-black sticky top-0 ">
@@ -65,7 +65,6 @@ const NavigationBar = () => {
                 type="text"
                 value={search}
                 onChange={handleSearch}
-              
               />
               <span className="py-1 px-3 text-white flex items-center ">
                 <Icon
@@ -88,7 +87,7 @@ const NavigationBar = () => {
               </button>
             </div>
             <div className="hidden md:block">
-              <ListButton list_coount={w_list.length}/>
+              <ListButton list_coount={w_list.length} />
             </div>
           </div>
         </div>

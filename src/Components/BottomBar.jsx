@@ -9,7 +9,7 @@ const BottomBar = ({ show }) => {
   const location = useLocation();
   const [w_list, setw_List] = useState([])
   useEffect(()=>{
-    setw_List(get_list())
+    setw_List(get_list()||[]) 
   }, [])
   return (
     <>
