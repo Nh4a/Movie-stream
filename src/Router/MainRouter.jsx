@@ -4,14 +4,14 @@ import MoviePage from "../Page/MoviePage";
 import MainLayout from "../Layout/MainLayout";
 import MovieDetail from "../Page/MovieDetail";
 import ContactPage from "../Page/ContactPage";
-import ScrolToTop from "../Utilities/ScrolToTop";
 
 const MainRouter = () => {
+  // localStorage.removeItem("movie");
   return (
     <>
       <Routes>
-      <ScrolToTop />
         <Route element={<MainLayout />}>
+          
           <Route path="/" element={<HomePage />} />
           <Route path="/movie" element={<MoviePage />} />
           <Route path="/contact" element={<ContactPage />} />

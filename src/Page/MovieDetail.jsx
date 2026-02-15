@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../Components/Card";
+import { add_to_list } from "../Utilities/listControl";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -95,6 +96,15 @@ const MovieDetail = () => {
                 <Icon icon="mdi:play" className="w-3 h-3 xs:w-6 xs:h-6" />
                 Watch Now
               </button>
+             <button
+              className="text-[12px] xs:text-[14px] flex items-center gap-1 px-1 py-2 xs:gap-2 xs:px-2 xs:py-3 rounded-xl text-white xs:font-bold border
+                border-white md:px-3 md:py-4 hover:-translate-y-0.5 transition-all duration-100 "
+                onClick={()=>{add_to_list(movie)}}
+             >
+              {/* {" "} */}
+              <Icon icon="mdi:play" className="w-3 h-3 xs:w-6 xs:h-6" />
+              Add To List
+            </button>
 
 
             </div>

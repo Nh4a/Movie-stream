@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SearchResult from "./SearchResult";
+import ListButton from "./ListButon";
+import { get_list } from "../Utilities/listControl";
 
 const NavigationBar = () => {
   const location = useLocation();
@@ -14,6 +16,10 @@ const NavigationBar = () => {
   };
   const [open, result] = useState(false);
 
+  const [w_list, setw_List] = useState("")
+  useEffect(()=>{
+    setw_List(get_list())
+  }, [])
   return (
     <>
       <nav style={{ zIndex: 100 }} className="w-full bg-black sticky top-0 ">
@@ -54,7 +60,7 @@ const NavigationBar = () => {
             <div className="relative hidden md:flex border-2 border-gray-500 rounded-xl ">
               <input
                 className="hidden md:block rounded-xl text-white placeholder:text-gray-400 placeholder:text-[11px] placeholder:font-bold 
-                  py-2 px-4 self-end text-[16px] forcus:outline-none focus:border-none"
+                  py-2 px-1 self-end text-[16px] forcus:outline-none focus:border-none"
                 placeholder="Search your favorite movie..."
                 type="text"
                 value={search}
@@ -77,9 +83,12 @@ const NavigationBar = () => {
               )}
             </div>
             <div>
-              <button className="bg-red-500 py-2 font-bold text-white px-4 rounded-xl border-2 border-red-500 hover:bg-white hover:text-red-500 transition-all">
-                Sign in
+              <button className=" p-1 md:p-2 font-bold text-white  rounded-xl border-2 border-red-500 hover:bg-white hover:text-red-500 transition-all">
+                <Icon icon="line-md:account" width="24" height="24" />
               </button>
+            </div>
+            <div className="hidden md:block">
+              <ListButton list_coount={w_list.length}/>
             </div>
           </div>
         </div>
