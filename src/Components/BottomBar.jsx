@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { get_list } from "../Utilities/listControl";
 const BottomBar = ({ show }) => {
   const location = useLocation();
-  const [w_list, setw_List] = useState("")
+  const [w_list, setw_List] = useState([])
   useEffect(()=>{
     setw_List(get_list())
   }, [])
