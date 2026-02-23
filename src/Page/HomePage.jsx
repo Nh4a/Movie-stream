@@ -35,6 +35,7 @@ const HomePage = () => {
     window.scrollTo(0, 0);
   }, [movies]);
   trandingMovie = movies.slice(0, 6);
+  const topRate = [...movies].sort((a, b) => b.vote_average - a.vote_average).slice(0, 6);
   movieHero = movies[Math.floor(Math.random() * 20)];
   console.log("hello home page");
   return (
@@ -72,13 +73,13 @@ const HomePage = () => {
           </div>
         </div>
         <div className="mt-8 w-full h-auto grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-5 xl:grid-cols-6">
-          {trandingMovie.map((item, index) => (
+          {topRate.map((item, index) => (
             <Card key={item.id} movie={item} />
           ))}
         </div>
         <Footer />
       </div>
-      <BottomBar />
+      {/* <BottomBar /> */}
     </div>
   );
 };

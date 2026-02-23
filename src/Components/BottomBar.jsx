@@ -7,10 +7,17 @@ import { useEffect } from "react";
 import { get_list } from "../Utilities/listControl";
 const BottomBar = ({ show }) => {
   const location = useLocation();
-  const [w_list, setw_List] = useState([]);
+  const [w_list, setw_List] = useState(get_list() || []);
+
   useEffect(() => {
-    setw_List(get_list() || []);
+    const handleWatchlistChange = () => {
+      setw_List(get_list() || []);
+    };
+    window.addEventListener("watchlistChanged", handleWatchlistChange);
+    return () =>
+      window.removeEventListener("watchlistChanged", handleWatchlistChange);
   }, []);
+
   return (
     <>
       <div className="z-1000"></div>
@@ -39,9 +46,9 @@ const BottomBar = ({ show }) => {
             </button>
           </li>
           <li>
-            <button type="button" onClick={show} className="hover:text-white">
+            <div>
               <ListButton list_coount={w_list.length} />
-            </button>
+            </div>
           </li>
         </ul>
       </div>

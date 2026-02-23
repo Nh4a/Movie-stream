@@ -20,7 +20,7 @@ const Card = ({ movie }) => {
   return (
     <div
       data-aos="fade-up"
-      className="bg-gray-900 h-100 rounded-xl overflow-hidden relative card"
+      className="bg-gray-900 h-100 rounded-xl overflow-hidden relative card transition-all  hover:-translate-y-1"
   
     >
       <Link
@@ -39,7 +39,7 @@ const Card = ({ movie }) => {
           height: "325px",
           backgroundImage: `url(${"https://image.tmdb.org/t/p/w500" + img})`,
         }}
-        className="bg-white"
+        className="bg-white bg-center bg-cover"
       ></div>
       <div className="p-4">
         <p className="text-[16px] truncate text-white w-full">{titel}</p>

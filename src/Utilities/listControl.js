@@ -1,5 +1,5 @@
 const key = "movie";
-const list = [];
+
 export function add_to_list(item) {
   let list_movie = [];
   list_movie = JSON.parse(localStorage.getItem(key)) || [];
@@ -7,17 +7,15 @@ export function add_to_list(item) {
   list_movie.push(item);
   localStorage.setItem(key, JSON.stringify(list_movie));
 }
-export function delete_from_list(item) {
-  // read data from local storage
+export function delete_from_list(id) {
   const current_list = JSON.parse(localStorage.getItem(key));
-  const deleted = current_list.filter((movie) => movie.id !== item.id);
+  const deleted = current_list.filter((movie) => movie.id !== id);
   localStorage.setItem(key, JSON.stringify(deleted));
+  window.dispatchEvent(new Event("watchlistChanged"));
 }
 export function get_list() {
-  // if there is no list, return null
   if (!localStorage.getItem(key)) {
     return null;
   }
-  const list = JSON.parse(localStorage.getItem(key));
-  return list;
+  return JSON.parse(localStorage.getItem(key));
 }

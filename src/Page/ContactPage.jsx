@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import Footer from "../Components/Footer";
 
 const ContactPage = () => {
   return (
@@ -105,6 +106,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

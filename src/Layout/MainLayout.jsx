@@ -11,24 +11,25 @@ const MainLayout = () => {
 
   function showSearch() {
     setActive(!active);
-    console.log("active state",active);
+    console.log("active state", active);
     if (!active) {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     }
-  };
+  }
   return (
     <>
       <SearchFill open={active} />
 
-      <NavigationBar/>
+      <NavigationBar />
       <div>
         <Outlet />
       </div>
-     <Footer />
       <BottomBar show={showSearch} />
+      <div>
+      </div>
     </>
   );
 };

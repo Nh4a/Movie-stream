@@ -4,6 +4,7 @@ import MoviePage from "../Page/MoviePage";
 import MainLayout from "../Layout/MainLayout";
 import MovieDetail from "../Page/MovieDetail";
 import ContactPage from "../Page/ContactPage";
+import WatchList from "../Page/WatchList";
 
 const MainRouter = () => {
   // localStorage.removeItem("movie");
@@ -15,6 +16,7 @@ const MainRouter = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/movie" element={<MoviePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/watchlist" element={<WatchList />} />
         </Route>
         <Route path="/detail/:id" element={<MovieDetail />} />
       </Routes>

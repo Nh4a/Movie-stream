@@ -16,9 +16,14 @@ const NavigationBar = () => {
   };
   const [open, result] = useState(false);
 
-  const [w_list, setw_List] = useState([]);
+  const [w_list, setw_List] = useState(get_list() || []);
   useEffect(() => {
-    setw_List(get_list() || []);
+    const handleWatchlistChange = () => {
+      setw_List(get_list() || []);
+    };
+    window.addEventListener("watchlistChanged", handleWatchlistChange);
+    return () =>
+      window.removeEventListener("watchlistChanged", handleWatchlistChange);
   }, []);
   return (
     <>

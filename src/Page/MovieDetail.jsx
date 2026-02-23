@@ -96,39 +96,21 @@ const MovieDetail = () => {
                 <Icon icon="mdi:play" className="w-3 h-3 xs:w-6 xs:h-6" />
                 Watch Now
               </button>
-             <button
-              className="text-[12px] xs:text-[14px] flex items-center gap-1 px-1 py-2 xs:gap-2 xs:px-2 xs:py-3 rounded-xl text-white xs:font-bold border
+              <button
+                className="text-[12px] xs:text-[14px] flex items-center gap-1 px-1 py-2 xs:gap-2 xs:px-2 xs:py-3 rounded-xl text-white xs:font-bold border
                 border-white md:px-3 md:py-4 hover:-translate-y-0.5 transition-all duration-100 "
-                onClick={()=>{add_to_list(movie)}}
-             >
-              {/* {" "} */}
-              <Icon icon="mdi:play" className="w-3 h-3 xs:w-6 xs:h-6" />
-              Add To List
-            </button>
-
-
+                onClick={() => {
+                  add_to_list(movie);
+                }}
+              >
+                {/* {" "} */}
+                <Icon icon="mdi:play" className="w-3 h-3 xs:w-6 xs:h-6" />
+                Add To List
+              </button>
             </div>
           </div>
         </div>
-        {/* <div className="w-full flex justify-between items-center mt-4">
-          <h1 className="text-white text-[24px] font-bold">
-            You May Also Like
-          </h1>
-          <div className="text-[#D9D9D9] text-[18px]">
-            <Link className="flex" to={"/movie"}>
-              View All
-              <Icon
-                icon="iconamoon:arrow-right-2"
-                className="w-4 h-4 xs:w-6 xs:h-6"
-              />
-            </Link>
-          </div>
-        </div> */}
-        {/* <div className="mt-8 w-full h-auto grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-5 xl:grid-cols-6">
-          {sMovies.map((item, index) => (
-            <Card key={item.id} movie={item} />
-          ))}
-        </div> */}
+       
         <Footer />
       </div>
     </>

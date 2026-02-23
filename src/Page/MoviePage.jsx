@@ -4,6 +4,7 @@ import HeroSection from "../Components/HeroSection";
 import NavigationBar from "../Components/NavigationBar";
 import axios from "axios";
 import Card from "../Components/Card";
+import Footer from "../Components/Footer";
 
 const MoviePage = () => {
 
@@ -96,6 +97,7 @@ const MoviePage = () => {
         </div>
       </div>
       <BottomBar />
+      <Footer />
     </>
   );
 };
